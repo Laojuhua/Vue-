@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+        <p k-text='name'></p>
+        <p>{{age}}</p>
+        <input type="text" k-model='name'>`                                                                                                                                                                                                 
+        <button @click='changeName'>im button</button>
+        <div k-html='html'></div>
+    </div>
+
+    <script src="./myvue.js"></script>
+    <script>
+        // let obj={}
+        // Object.defineProperty(obj,'name',{
+        //     get(){
+        //         console.log('get')
+        //         return document.querySelector('#app').innerHTML
+        //     },
+        //     set(val){
+        //         document.querySelector('#app').innerHTML = val
+        //         console.log('set')
+        //     }
+        // })
+        new KVue({
+            el:'#app',
+            data:{
+                name:'my vue',
+                age:6,
+                html:'<button>Click me</button>'
+            },
+            created(){
+                setTimeout(()=>{
+                    this.age=18
+                })
+            },
+            methods: {
+                changeName(){
+                    this.name='来啦，老弟'
+                }
+            },
+        })
+    </script>
+</body>
+</html>
